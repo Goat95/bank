@@ -1,0 +1,156 @@
+// Common
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  position: relative;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+button {
+  border: none;
+  outline: none;
+  background: none;
+}
+.wrapper {
+  width: 327px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+}
+
+// Status Bar
+.statusbar {
+  height: 45px;
+  background-image: url("../images/iPhone_status_bar.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.close {
+  justify-content: flex-end;
+  a {
+    font-weight: 300;
+  }
+}
+
+.title {
+  h1 {
+    font-size: 24px;
+    margin-top: 12px;
+  }
+}
+
+header {
+  margin-top: 29px;
+  
+  .wrapper {
+    h2 {
+      font-size: 18px;
+      color: #444;
+  
+      strong {
+        font-size: 24px;
+        margin-left: 78px;
+        color: #FF5F00;
+      }
+    }
+  }
+  
+  .range {
+    -webkit-appearance: none;
+    width: 308px;
+    height: 9px;
+    background: #C4C4C4;
+    border-radius: 3px;
+    margin-top: 38.71px;
+    margin-left: 29px;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      background: #FF5F00;
+      width: 8px;
+      height: 28px;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+  }
+}
+
+// Section1
+.dailyreport {
+  margin-top: 59px;
+
+  .wrapper {
+    flex-direction: column;
+
+    h2 {
+      font-size: 18px;
+      color: #444;
+    }
+
+    .chartBox {
+      width: 470px;
+      height: 255px;
+      overflow-x: scroll;
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .report-chart {
+        margin-top: 17px;
+      }
+    }
+  }
+}
+
+// Section2
+.spend-pattern {
+  margin-top: 46px;
+
+  .wrapper {
+    flex-direction: column;
+
+    h2 {
+      font-size: 18px;
+      color: #444;
+    }
+    .chartBox {
+      width: 470px;
+      height: 255px;
+      margin-top: 18px;
+
+      .spend-chart {
+        
+      }
+    }
+  }
+}
+
+// nav
+.nav__bar {
+  position: fixed;
+  bottom: 0;
+  width: 375px;
+  height: 76px;
+  background: linear-gradient(163.63deg, #00BDB2 11.35%, #C4E7B8 139.96%);
+  .wrapper {
+    ul {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}

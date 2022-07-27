@@ -1,0 +1,449 @@
+// Common
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  position: relative;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  background: #EEECE5;
+  overflow-y: hidden;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+button {
+  border: none;
+  outline: none;
+  background: none;
+}
+.wrapper {
+  width: 327px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+}
+
+// Modal
+.modal-bg {
+  display: none;
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color:rgba(0, 0,0, 0.5);
+  top:0;
+  left: 0;
+  z-index: 1000;
+}
+
+.modal-wrap {
+  display: none;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background:#eee;
+  z-index: 1001;
+
+  .modal-close {
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    top: -30px;
+    right: 0;
+
+    & > a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: url("https://img.icons8.com/metro/26/000000/close-window.png");
+      text-indent: -9999px;
+    }
+  }
+
+  .modal-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    input {
+      width: 200px;
+    }
+  }
+}
+
+// Status Bar
+.statusbar {
+  height: 45px;
+  background-image: url("../images/iPhone_status_bar.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+// Header
+.account__meta {
+  height: 43px;
+  margin-bottom: 33px;
+
+  .wrapper {
+    align-items: center;
+    justify-content: space-between;
+    a {
+      img {
+        width: 43px;
+        height: 43px;
+      }
+    }
+    
+    .account__title {
+      font-size: 18px;
+    }
+    
+    .header__icons {
+      img {
+        width: 24px;
+        height: 24px;
+        margin-left: 18px;
+      }
+    }
+  }
+}
+
+// Main
+.account__main {
+  .wrapper {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    .account__info {         
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      width: 279px;
+      height: 155px;
+      box-shadow: 0px 0px 16px rgba(226, 191, 66, 0.19);
+      border-radius: 12px;
+
+      .account {
+        display: flex;
+        margin-top: 14px;
+        
+        .account__number {
+          color: #858585;
+        }
+        .transfer {
+          position: absolute;
+          top: 11%;
+          right: 5%;
+        }
+      }
+
+      .account__balance {
+        font-size: 24px;
+        margin-top: 16px;
+        
+        strong {
+          span {
+            font-size: 14px;
+          }
+        }
+      }
+
+      .account__balance__bar {
+        margin-top: 16px;
+        display: flex;
+        align-items: center;
+        
+        .range {
+          -webkit-appearance: none;
+          width: 202px;
+          height: 6px;
+          background: #C4C4C4;
+          border-radius: 3px;
+          cursor: pointer;
+          transition: background 450ms ease-in;
+
+          &:focus {
+            outline: none;
+          }
+
+          &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            background: #FF5F00;
+            width: 4px;
+            height: 17px;
+            border-radius: 2px;
+            border: 2px solid #FF5F00;
+            cursor: pointer;
+          }
+        }
+        & > a {
+          margin-left: 20px;
+        }
+      }
+
+      .loan {
+        color: #858585;
+        margin: 8px 0 6px 0;
+      }
+    }
+
+    p {
+      margin: 24px 0 21px 0;
+      
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// Section
+.account__history__list {
+  width: 375px;
+  background: #F5F5F5;
+  box-shadow: 0px -5px 14px rgba(189, 144, 28, 0.08);
+  border-radius: 30px 30px 0px 0px;
+
+  &.active {
+    position: absolute;
+    top: 14%;
+    height: 76vh;
+
+    .account__history {
+      height: 100% !important;
+    }
+  }
+
+  .wrapper {
+    flex-direction: column;
+
+    .shutter {
+      width: 106px;
+      height: 17px;
+      margin: 0 auto;
+      background-image: url("../images/up.svg");
+    }
+    .swiper {
+      width: 100%;
+      height: 47px;
+
+      .piggybank {
+        width: 100%;
+        display: flex;
+
+        .swiper-slide {
+          display: flex;
+          justify-content: center;
+        }
+  
+        .piggybank-item {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          width: 162px;
+          font-size: 12px;
+          color: #fff;
+          background: #DADADA;
+          border-radius: 6px;
+          margin-right: 13px;
+  
+          &:nth-child(1)::after {
+            content: "";
+            background-color: #FF5F00;
+            border-radius: 6px 0px 0px 6px;
+            width: 100px;
+            height: 47px;
+            position: absolute;
+          }
+          &:nth-child(2)::after {
+            content: "";
+            background-color: #FEB700;
+            border-radius: 6px 0px 0px 6px;
+            width: 120px;
+            height: 47px;
+            position: absolute;
+          }
+          &:nth-child(3)::after {
+            content: "";
+            background-color: #55ACEE;;
+            border-radius: 6px 0px 0px 6px;
+            width: 130px;
+            height: 47px;
+            position: absolute;
+          }
+  
+          span {
+            margin-left: 13px;
+            z-index: 1;
+          }
+        }
+        button {
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+    
+    .account__history {
+      overflow-y: scroll;
+      height: 290px;
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .today-list {
+        margin-top: 16px;
+
+        .today {
+          display: flex;
+          justify-content: space-between;
+          & > span {
+            font-weight: 700;
+          }
+
+          .expenses {
+            color: #B4B4B4;
+          }
+        }
+
+        .list {
+
+          ul {
+            color: #444;
+            font-size: 18px;
+            font-weight: 300;
+
+            li {
+              display: flex;
+              justify-content: space-between;
+              border-bottom: 1px solid #DCDCDC;
+              margin-top: 8px;
+
+              .history {
+                padding-bottom: 7px;
+              }
+            }
+
+            .price-income {
+              color: #FF5F00;
+            }
+          }
+        }
+      }
+
+      .yesterday-list {
+        margin-top: 38px;
+        
+        .yesterday {
+          display: flex;
+          justify-content: space-between;
+          
+          & > span {
+            font-weight: 700;
+          }
+
+          .expenses {
+            color: #B4B4B4;
+          }
+        }
+
+        .list {
+
+          ul {
+            color: #444;
+            font-size: 18px;
+            font-weight: 300;
+            
+            li {
+              display: flex;
+              justify-content: space-between;
+              border-bottom: 1px solid #DCDCDC;
+              margin-top: 8px;
+            }
+
+            .price-income {
+              color: #FF5F00;
+            }
+          }
+        }
+      }
+
+      .twodaysago-list {
+        margin-top: 38px;
+        
+        .twodaysago {
+          display: flex;
+          justify-content: space-between;
+          
+          & > span {
+            font-weight: 700;
+          }
+
+          .expenses {
+            color: #B4B4B4;
+          }
+        }
+
+        .list {
+          
+          ul {
+            color: #444;
+            font-size: 18px;
+            font-weight: 300;
+            
+            li {
+              display: flex;
+              justify-content: space-between;
+              border-bottom: 1px solid #DCDCDC;
+              margin-top: 8px;
+            }
+
+            .price-income {
+              color: #FF5F00;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+}
+
+// nav
+.nav__bar {
+  position: fixed;
+  bottom: 0;
+  width: 375px;
+  height: 76px;
+  z-index: 999;
+  background: linear-gradient(163.63deg, #00BDB2 11.35%, #C4E7B8 139.96%);
+  
+  .wrapper {
+
+    ul {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}

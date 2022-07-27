@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Management</title>
+
+  <!-- Googel Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./styles/style.scss">
+
+  <!-- Swiper JS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+  <!-- JS -->
+  <script defer src="./js/main.js"></script>
+
+  <!-- Fetch JS -->
+  <script defer src="./js/fetch.js"></script>
+
+</head>
+<body>
+  <div class="modal-bg"></div>
+  <div class="modal-wrap">
+    <div class="modal-close">
+      <a href="#">X</a>
+    </div>
+    <form class="modal-form">
+      <label for="piggy-title">저금통 이름</label>
+      <input type="text" id="piggy-title" />
+      <label for="piggy-money">모을 금액</label>
+      <input type="text" id="piggy-money" />
+      <button class="piggymake-btn" type="submit">만들기</button>
+    </form>
+  </div>
+
+  <div class="statusbar">
+    <div class="wrapper">
+    <!-- background-image -->
+    </div>
+  </div>
+  <div class="swiper page">
+    <div class="swiper-wrapper">
+      <!-- First Page -->
+      <div class="swiper-slide first">
+        <header class="account__meta">
+          <div class="wrapper">
+            <a href="#">
+              <img src="./images/avatar.svg" alt="avatar">
+            </a>
+            <h2 class="account__title"></h2>
+            <div class="header__icons">
+              <img src="./images/simple_pay_icon.svg" alt="간편결제아이콘" />
+              <img src="./images/search_icon.svg" alt="검색아이콘" />
+            </div>
+          </div>
+        </header>
+        <main class="account__main">
+          <div class="wrapper">
+            <div class="account__info">
+              <div class="account">
+                <h3 class="account__number"></h3>
+                <button class="transfer">
+                  이체
+                </button>
+              </div>
+              <div class="account__balance">
+                <strong><span>원</span></strong>
+              </div>
+              <div class="account__balance__bar">
+                <input type="range" class="range" value="0" />
+                <a href="./spend.html">
+                  <img src="./images/char_icon.svg" alt="chartIcon">
+                </a>
+              </div>
+              <p class="loan">5일 동안 <span class="limit">210,000원</span> 남음</p>
+            </div>
+            <p>지금 낮은 이자로 생활대출을 신청하세요! <a href="#">Go</a> </p>
+          </div>
+        </main>
+        <section class="account__history__list">
+          <div class="wrapper">
+            <button class="shutter" draggable="true"></button>
+            <div class="swiper">
+              <div class="swiper-wrapper piggybank">
+                <div class="swiper-slide piggybank-item">
+                  <span>여행가자!</span> 
+                  <span>842,200원</span>
+                </div>
+                <div class="swiper-slide piggybank-item">
+                  <span>냉장고사기!</span> 
+                  <span>142,200원</span>
+                </div>
+                <div class="swiper-slide piggybank-item">
+                  <span>게임기!</span> 
+                  <span>82,200원</span>
+                </div>
+                <div class="swiper-slide">
+                  <button class="piggybank-btn">
+                    <img src="./images/add_icon.svg" alt="addButton">
+                    저금통 만들기
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="account__history">
+              <div class="today-list">
+                <div class="today">
+                  <span>오늘</span>
+                  <span class="expenses"><span></span> 지출</span>
+                </div>
+                <div class="list">
+                  <ul>
+                    <!-- <li>
+                      <span class="history">미스터피자</span>
+                      <span class="price">32,000</span>
+                    </li>
+                    <li>
+                      <span class="history">택시</span>
+                      <span class="price">4,800</span>
+                    </li>
+                    <li>
+                      <span class="history">이마트</span>
+                      <span class="price">86,000</span>
+                    </li>
+                    <li>
+                      <span class="history">스타벅스</span>
+                      <span class="price">4,000</span>
+                    </li>
+                    <li>
+                      <span class="history">전길수</span>
+                      <span class="price">+20,000</span>
+                    </li> -->
+                  </ul>
+                </div>
+              </div>
+              <div class="yesterday-list">
+                <div class="yesterday">
+                  <span>어제</span>
+                  <span class="expenses"><span>71,600원</span> 지출</span>
+                </div>
+                <div class="list">
+                  <ul>
+                    <!-- <li>
+                      <span class="history">CU</span>
+                      <span class="price">8,900</span>
+                    </li>
+                    <li>
+                      <span class="history">김경남</span>
+                      <span class="price-income">+ 31,000</span>
+                    </li>
+                    <li>
+                      <span class="history">애슐리</span>
+                      <span class="price">31,000</span>
+                    </li>
+                    <li>
+                      <span class="history">교보문고</span>
+                      <span class="price">18,000</span>
+                    </li>
+                    <li>
+                      <span class="history">쿠팡</span>
+                      <span class="price">10,500</span>
+                    </li>
+                    <li>
+                      <span class="history">미스터피자</span>
+                      <span class="price">32,000</span>
+                    </li> -->
+                  </ul>
+                </div>
+              </div>
+              <div class="twodaysago-list">
+                <div class="twodaysago">
+                  <span>2일전</span>
+                  <span class="expenses"><span>64,000원</span> 지출</span>
+                </div>
+                <div class="list">
+                  <ul>
+                    <!-- <li>
+                      <span class="history">알파문구</span>
+                      <span class="price">46,000</span>
+                    </li>
+                    <li>
+                      <span class="history">스타벅스</span>
+                      <span class="price">18,000</span>
+                    </li>
+                    <li>
+                      <span class="history">미스터피자</span>
+                      <span class="price">32,000</span>
+                    </li>
+                    <li>
+                      <span class="history">김준혁</span>
+                      <span class="price-income">18,000</span>
+                    </li> -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Second Page -->
+      <div class="swiper-slide second">
+        <header class="account__meta">
+          <div class="wrapper">
+            <a href="#">
+              <img src="./images/avatar2.svg" alt="avatar">
+            </a>
+            <h2 class="account__title"></h2>
+            <div class="header__icons">
+              <img src="./images/simple_pay_icon.svg" alt="간편결제아이콘" />
+              <img src="./images/search_icon.svg" alt="검색아이콘" />
+            </div>
+          </div>
+        </header>
+        <main class="account__main">
+          <div class="wrapper">
+            <div class="account__info">
+              <div class="account">
+                <h3 class="account__number">355-263523-2927</h3>
+                <button class="transfer">
+                  이체
+                </button>
+              </div>
+              <div class="account__balance">
+                <strong>1,240,000 <span>원</span></strong>
+              </div>
+              <div class="account__balance__bar">
+                <input type="range" class="range" value="0" />
+                <!-- <img src="./images/progressbar.svg" alt="progressBar"> -->
+                <a href="./spend.html">
+                  <img src="./images/char_icon.svg" alt="chartIcon">
+                </a>
+              </div>
+              <p class="loan">5일 동안 <span class="limit">210,000원</span> 남음</p>
+            </div>
+            <p>지금 낮은 이자로 생활대출을 신청하세요! <a href="#">Go</a> </p>
+          </div>
+        </main>
+        <section class="account__history__list">
+          <div class="wrapper">
+            <button class="shutter" draggable="true"></button>
+            <div class="swiper">
+              <div class="swiper-wrapper piggybank">
+                <div class="swiper-slide piggybank-item">
+                  <span>여행가자!</span> 
+                  <span>842,200원</span>
+                </div>
+                <div class="swiper-slide piggybank-item">
+                  <span>냉장고사기!</span> 
+                  <span>142,200원</span>
+                </div>
+                <div class="swiper-slide piggybank-item">
+                  <span>게임기!</span> 
+                  <span>82,200원</span>
+                </div>
+                <div class="swiper-slide">
+                  <button class="piggybank-btn">
+                    <img src="./images/add_icon.svg" alt="addButton">
+                    저금통 만들기
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="account__history">
+              <div class="today-list">
+                <div class="today">
+                  <span>오늘</span>
+                  <span class="expenses"><span></span> 지출</span>
+                </div>
+                <div class="list">
+                  <ul>
+                    <!-- <li>
+                      <span class="history">미스터피자</span>
+                      <span class="price">32,000</span>
+                    </li>
+                    <li>
+                      <span class="history">택시</span>
+                      <span class="price">4,800</span>
+                    </li>
+                    <li>
+                      <span class="history">이마트</span>
+                      <span class="price">86,000</span>
+                    </li>
+                    <li>
+                      <span class="history">스타벅스</span>
+                      <span class="price">4,000</span>
+                    </li>
+                    <li>
+                      <span class="history">전길수</span>
+                      <span class="price">+20,000</span>
+                    </li> -->
+                  </ul>
+                </div>
+              </div>
+              <div class="yesterday-list">
+                <div class="yesterday">
+                  <span>어제</span>
+                  <span class="expenses"><span>71,600원</span> 지출</span>
+                </div>
+                <div class="list">
+                  <ul>
+                    <!-- <li>
+                      <span class="history">CU</span>
+                      <span class="price">8,900</span>
+                    </li>
+                    <li>
+                      <span class="history">김경남</span>
+                      <span class="price-income">+ 31,000</span>
+                    </li>
+                    <li>
+                      <span class="history">애슐리</span>
+                      <span class="price">31,000</span>
+                    </li>
+                    <li>
+                      <span class="history">교보문고</span>
+                      <span class="price">18,000</span>
+                    </li>
+                    <li>
+                      <span class="history">쿠팡</span>
+                      <span class="price">10,500</span>
+                    </li>
+                    <li>
+                      <span class="history">미스터피자</span>
+                      <span class="price">32,000</span>
+                    </li> -->
+                  </ul>
+                </div>
+              </div>
+              <div class="twodaysago-list">
+                <div class="twodaysago">
+                  <span>2일전</span>
+                  <span class="expenses"><span>64,000원</span> 지출</span>
+                </div>
+                <div class="list">
+                  <ul>
+                    <!-- <li>
+                      <span class="history">알파문구</span>
+                      <span class="price">46,000</span>
+                    </li>
+                    <li>
+                      <span class="history">스타벅스</span>
+                      <span class="price">18,000</span>
+                    </li>
+                    <li>
+                      <span class="history">미스터피자</span>
+                      <span class="price">32,000</span>
+                    </li>
+                    <li>
+                      <span class="history">김준혁</span>
+                      <span class="price-income">18,000</span>
+                    </li> -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Third Page -->
+      <div class="swiper-slide third">
+        <header class="account__meta">
+          <div class="wrapper">
+            <a href="#">
+              <img src="./images/avatar3.svg" alt="avatar">
+            </a>
+            <h2 class="account__title"></h2>
+            <div class="header__icons">
+              <img src="./images/simple_pay_icon.svg" alt="간편결제아이콘" />
+              <img src="./images/search_icon.svg" alt="검색아이콘" />
+            </div>
+          </div>
+        </header>
+        <main class="account__main">
+          <div class="wrapper">
+            <div class="account__info">
+              <div class="account">
+                <h3 class="account__number">355-263523-2927</h3>
+                <button class="transfer">
+                  이체
+                </button>
+              </div>
+              <div class="account__balance">
+                <strong>1,240,000 <span>원</span></strong>
+              </div>
+              <div class="account__balance__bar">
+                <input type="range" class="range" value="0" />
+                <!-- <img src="./images/progressbar.svg" alt="progressBar"> -->
+                <a href="./spend.html">
+                  <img src="./images/char_icon.svg" alt="chartIcon">
+                </a>
+              </div>
+              <p class="loan">5일 동안 <span class="limit">210,000원</span> 남음</p>
+            </div>
+            <p>지금 낮은 이자로 생활대출을 신청하세요! <a href="#">Go</a> </p>
+          </div>
+        </main>
+        <section class="account__history__list">
+          <div class="wrapper">
+            <button class="shutter" draggable="true"></button>
+            <div class="swiper">
+              <div class="swiper-wrapper piggybank">
+                <div class="swiper-slide piggybank-item">
+                  <span>여행가자!</span> 
+                  <span>842,200원</span>
+                </div>
+                <div class="swiper-slide piggybank-item">
+                  <span>냉장고사기!</span> 
+                  <span>142,200원</span>
+                </div>
+                <div class="swiper-slide piggybank-item">
+                  <span>게임기!</span> 
+                  <span>82,200원</span>
+                </div>
+                <div class="swiper-slide">
+                  <button class="piggybank-btn">
+                    <img src="./images/add_icon.svg" alt="addButton">
+                    저금통 만들기
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="account__history">
+              <div class="today-list">
+                <div class="today">
+                  <span>오늘</span>
+                  <span class="expenses"><span>127,600원</span> 지출</span>
+                </div>
+                <div class="list">
+                  <ul>
+                    <!-- <li>
+                      <span class="history">미스터피자</span>
+                      <span class="price">32,000</span>
+                    </li>
+                    <li>
+                      <span class="history">택시</span>
+                      <span class="price">4,800</span>
+                    </li>
+                    <li>
+                      <span class="history">이마트</span>
+                      <span class="price">86,000</span>
+                    </li>
+                    <li>
+                      <span class="history">스타벅스</span>
+                      <span class="price">4,000</span>
+                    </li>
+                    <li>
+                      <span class="history">전길수</span>
+                      <span class="price">+20,000</span>
+                    </li> -->
+                  </ul>
+                </div>
+              </div>
+              <div class="yesterday-list">
+                <div class="yesterday">
+                  <span>어제</span>
+                  <span class="expenses"><span>71,600원</span> 지출</span>
+                </div>
+                <div class="list">
+                  <ul>
+                    <!-- <li>
+                      <span class="history">CU</span>
+                      <span class="price">8,900</span>
+                    </li>
+                    <li>
+                      <span class="history">김경남</span>
+                      <span class="price-income">+ 31,000</span>
+                    </li>
+                    <li>
+                      <span class="history">애슐리</span>
+                      <span class="price">31,000</span>
+                    </li>
+                    <li>
+                      <span class="history">교보문고</span>
+                      <span class="price">18,000</span>
+                    </li>
+                    <li>
+                      <span class="history">쿠팡</span>
+                      <span class="price">10,500</span>
+                    </li>
+                    <li>
+                      <span class="history">미스터피자</span>
+                      <span class="price">32,000</span>
+                    </li> -->
+                  </ul>
+                </div>
+              </div>
+              <div class="twodaysago-list">
+                <div class="twodaysago">
+                  <span>2일전</span>
+                  <span class="expenses"><span>64,000원</span> 지출</span>
+                </div>
+                <div class="list">
+                  <ul>
+                    <!-- <li>
+                      <span class="history">알파문구</span>
+                      <span class="price">46,000</span>
+                    </li>
+                    <li>
+                      <span class="history">스타벅스</span>
+                      <span class="price">18,000</span>
+                    </li>
+                    <li>
+                      <span class="history">미스터피자</span>
+                      <span class="price">32,000</span>
+                    </li>
+                    <li>
+                      <span class="history">김준혁</span>
+                      <span class="price-income">18,000</span>
+                    </li> -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <nav class="nav__bar">
+    <div class="wrapper">
+      <ul>
+        <li>
+          <a href="#">
+            <img src="./images/mdi_home.svg" alt="">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="./images/Group28.svg" alt="">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="./images/Glyph1.svg" alt="">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="./images/Glyph2.svg" alt="">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+</body>
+</html>
